@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive superheroes website design tutorials</title>
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+    <style>
+        :root{
+            --red:#ff1a1a;
+        }
+        *{
+            margin-top: 0; padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            transition: all .3s cubic-bezier(.16,.8,.62,1.52);
+            text-transform: capitalize;
+            font-weight: normal;
+        }
+        *::selection{
+            background: var(--red);
+            color:white
+        }
+        html{
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        html::-webkit-scrollbar{
+           width: 1.3rem;
+        }
+        html::-webkit-scrollbar-track{
+           background: #000;
+        }
+        html::-webkit-scrollbar-thumb{
+           background: var(--red);
+        }
+
+        section{
+            min-height: 100vh;
+            padding: 0 7%;
+            padding-top: 11rem;
+        }
+         
+        .btn{
+            display: inline-block;
+            padding: 1rem 4rem;
+            font-size: 2rem;
+            color: #fff;
+            background: var(--red);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        .btn:hover{
+            transform: scale(1.02);
+        }
+        .heading{
+            text-align: center;
+            color: var(--red);
+            text-transform: uppercase;
+            font-size: 4rem;
+        }
+         .heading span{
+            color:#666
+         }
+        header{
+            position: fixed;
+            top: 2.5rem; left:50%;
+            transform: translateX(-50%);
+            width: 93%;
+            z-index: 1000;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 3rem;
+            border-radius: .5rem;
+        }
+        header .logo{
+            color: #333;
+            font-size: 2.5rem;
+        }
+        header .logo span{
+            color: var(--red);
+        }
+        
+        
+
+        header .navbar ul{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+        }
+        header .navbar ul li{
+            margin-left: 3rem;
+        }
+        header .navbar ul li a{
+            font-size: 2rem;
+            color:#333
+        }
+        header .navbar ul li a:active,
+        header .navbar ul li a:hover{
+            color:var(--red);
+        }
+
+        #menu{
+            font-size: 3rem;
+            color: #666;
+            cursor: pointer;
+            display: none;
+        }
+        .home{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: linear-gradient(rgba(0,0,0,.8));
+            background-image: url("https://cdn.marvel.com/content/1x/msm2_sgf_4k_kravenfightart_legal_2023.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .home .image{
+            flex: 1 1 40rem;
+        }
+        .home .image img{
+           width: 100%;
+        }
+        .home .content{
+            flex: 1 1 40rem;
+            padding: 4rem 0;
+        }
+        .home .content h3{
+            color:var(--red);
+            font-size: 4rem;
+            padding-bottom: 1rem;
+        }
+        .home .content h1{
+            color:#fbf9f9;
+            font-size: 7rem;
+        }
+        .home .content p{
+            color:#aaa;
+            font-size: 2.5rem;
+            padding: 1rem 0;
+        }
+        
+        .gallery{
+            background: #f0f0f0;
+        }
+        .gallery .box-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery .box-container .box{
+            flex: 1 1 30rem;
+            height: 40rem;
+            overflow: hidden;
+            background: #333;
+            text-align: center;
+            margin: 2rem;
+            border-radius: .5rem;
+            position: relative;
+        }
+        .gallery .box-container .box img{
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery .box-container .box .info{
+            position: absolute;
+            bottom: -120%; left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: #fff;
+            padding: 2rem;
+            border: .3rem solid var(--red);
+            border-radius: .5rem;
+        }
+
+        .gallery .box-container .box:hover .info{
+             bottom: 2rem;
+        }
+        .gallery .box-container .box:hover img{
+            transform: scale(1.2);
+        }
+        .gallery .box-container .box:hover{
+            background: #111;
+        }
+
+        .gallery .box-container .box .info h3{
+            background: var(--red);
+            color: #fff;
+            border-radius: 5rem;
+            margin: 0 5rem;
+            margin-top: -3.7rem;
+            padding: 5rem 2rem;
+            font-size: 2.5rem;
+        }
+        .gallery .box-container .box .info p{
+            font-size: 2rem;
+            color: #666;
+            padding: .5rem;
+            padding-top: 2rem;
+        }
+
+        .about{
+            background: #eee;
+            padding-bottom: 3rem;
+        }
+        .about .row{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .about .row .image{
+            flex: 1 1 40rem;
+            padding: 2rem 0;
+            text-align: center;
+        }
+      
+        .about.row .image img{
+            height: 50rem;
+        }
+        .about .row .content{
+            flex: 1 1 40rem;
+        }
+        .about .row .content h3{
+            font-size: 5.5rem;
+            color: #333;
+        }
+        .about .row .content p{
+            font-size: 2.2rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .movies{
+            background: #222;
+        }
+        .movies .heading span{
+            color: #fff;
+        }
+
+        .movies .box-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .movies .box-container .box{
+            flex: 1 1 30rem;
+            height: 40rem;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem;
+            box-shadow: 0 .3rem .5rem #000;
+        }
+        .movies .box-container .box img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .movies .box-container .box .info{
+            padding: 2rem;
+            width: 100%;
+            position: absolute;
+            bottom: -100%; left: 0;
+            background: rgba(0,0,0,.7);
+        }
+        .movies .box-container .box:hover .info{
+          bottom: 0;
+        }
+        .movies .box-container .box .info h3{
+            font-size: 3rem;
+            color: #fff;
+            padding-bottom: .5rem;
+        }
+        .movies .box-container .box .info span{
+            font-size: 2rem;
+            color:var(--red)
+            
+        }
+        .movies .box-container .box .info .stars i{
+            font-size: 2rem;
+            color: orange;
+            padding: 1rem .1rem;
+        }
+        .movies .box-container .box .info .stars p{
+            font-size: 2rem;
+            color: #f1ecec;
+            padding: 5rem 0;
+        }
+
+        .product{
+            background: #eee;
+        }
+
+        .product .box-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .product .box-container .box{
+            margin: 1rem;
+            padding: 2rem;
+            background: #fff;
+            border: 1rem solid rgba(0,0,0,.8);
+            text-align: center;
+            width: 27rem;
+        }
+        .product .box-container .box:hover{
+            box-shadow: 0 .7rem 1rem rgba(0, 0, 0, .1);
+        }
+        .product .box-container .box img{
+            margin: 2rem 0;
+            height: 17rem;
+        }
+        .product .box-container .box h3{
+            color: #444;
+            font-size: 3rem;
+        }
+        .product .box-container .box p{
+            color: #999;
+            font-size: 2rem;
+            padding: 1rem 0;
+        }
+        .product .box-container .box .price{
+            color: #666;
+            font-size: 3rem;
+        }
+         
+        .footer{
+            text-align: center;
+            background: #222;
+        }
+        .footer .share{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+        }
+        .footer .share a{
+            font-size: 2rem;
+            color: #ccc;
+            padding: 2rem;
+        }
+        .footer .share a:hover{
+              color: #eee;
+        }
+        .footer  a:hover{
+            text-decoration: underline;
+        }
+        .footer .credit{
+            padding: 2rem 1rem;
+            font-size: 3rem;
+            color: #fff;
+            background: #111;
+        }
+        .footer .credit a{
+            color: var(--red);
+        }
+
+        .scroll-top{
+            position: fixed;
+            bottom: 7.5rem; right: 2rem;
+            z-index: 1000;
+            display: none;
+        }
+          .scroll-top img{
+            height: 7rem;
+            filter: drop-shadow(0 .3rem .5rem rgba(0,0,0,.2));
+          }
+
+
+
+
+
+
+
+
+
+        /*media queries */
+       @media (max-width:991px){
+            html{
+                font-size: 55%;
+            }
+           
+        }
+        @media (max-width:768px){
+            #menu{
+                display: block;
+            }
+           header .navbar{
+            position: fixed;
+            top: 110%; left: 0;
+            background: #fff;
+            width: 100%;
+            border-radius: .5rem;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            transform: scaleY(0);
+            transform-origin: top;
+            opacity: 0;
+           }
+           header .navbar ul{
+            flex-flow: column;
+            padding: 2rem;
+           }
+           header .navbar ul li{
+            margin: 1rem 0;
+            width: 100%;
+           } 
+           header .navbar ul li a{
+            display: block;
+            font-size: 2.5rem;
+            border-bottom: .1rem solid rgba(0, 0, 0, .1);
+            padding: 1.5rem 0;
+           }
+           .fa-times{
+            transform: rotate(180deg);
+           }
+           header .navbar.nav-toggle{
+            transform: scaleY(1);
+            opacity: 1;
+           }
+           .home .content{
+            text-align: center;
+           }
+        }
+
+        @media(max-width:400px){
+            html{
+                font-size: 50%;
+            }
+            section{
+                padding: 0 3%;
+                padding-top: 11rem;
+            }
+            .about .row .image img{
+                height: auto;
+                width: 100%;
+            }
+
+            .product .box-container .box {
+           width: 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <a href="#" class="logo"><span>MOVIES</span>SPOT</a>
+          <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+<ul>
+              <li><a class="active" href="#home">home</a></li>
+              <li><a href="#gallery">gallery</a></li>
+               <li><a href="#about">about</a></li>
+                <li><a href="#movies">movies</a></li>
+                 <li><a href="#product">product</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+            <div class="content">
+                <h3>amazing marvelmovies</h3>
+                <h1>welcome marvel fans</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatem.
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, laboriosam.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, error!
+                </p>
+                <a href="#" class="btn">get started</a>
+            </div>
+            <div class="image">
+                <img src="https://images.hdqwalls.com/wallpapers/marvel-spiderman-hd-o1.jpg" alt="">
+            </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h1 class="heading"><span>superheroes</span>gallery</h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="https://cdn.pixabay.com/photo/2023/06/29/08/22/ai-generated-8095915_1280.png" alt="">
+                <div class="info">
+                    <h3>captain america</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://cdn.pixabay.com/photo/2023/06/14/10/10/thor-8062761_960_720.jpg" alt="">
+                <div class="info">
+                    <h3>thor</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://wallpapercave.com/wp/wp5690354.jpg" alt="">
+                <div class="info">
+                    <h3>ant-man</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://www.pngarts.com/files/4/Drax-PNG-Background-Image.png" alt="">
+                <div class="info">
+                    <h3>drax</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://i.pinimg.com/originals/38/3d/39/383d3952254d43843361e18d3a4f5091.png" alt="">
+                <div class="info">
+                    <h3>captain marvel</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://cdn.pixabay.com/photo/2020/09/11/00/06/spiderman-5561671_960_720.jpg" alt="">
+                <div class="info">
+                    <h3>spider-man</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://cdn.pixabay.com/photo/2023/06/29/09/08/ai-generated-8096002_1280.jpg" alt="">
+                <div class="info">
+                    <h3>doctor strange</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://wallpaperaccess.com/full/54082.jpg" alt="">
+                <div class="info">
+                    <h3>black panther</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://cdn.pixabay.com/photo/2023/02/12/12/45/iron-man-7785032_640.jpg" alt="">
+                <div class="info">
+                    <h3>iron-man</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, expedita?</p>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h1 class="heading"><span>about</span>avengers</h1>
+        <div class="row">
+            <div class="image">
+                <img src="http://clipart-library.com/img/1713299.png" alt="">
+            </div>
+            <div class="content">
+                <h3>marlev avengers is amazing</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, aspernatur.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, a!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, neque?
+                </p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, nemo!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, fuga?
+                </p>
+                <a href="#" class="btn">learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="movies" id="movies">
+        <h1 class="heading"><span>marvel</span>movies</h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="https://i.etsystatic.com/18324742/r/il/74a228/3509409471/il_570xN.3509409471_tspq.jpg" alt="">
+                <div class="info">
+                    <h3>marvel avengers 2012</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://i.pinimg.com/originals/98/3c/ce/983ccedf98bad04e65b1aee77751dbdc.jpg" alt="">
+                <div class="info">
+                    <h3>avengers age of ultron</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://i.pinimg.com/originals/ef/b7/fb/efb7fb7510e72214788a9768835990ba.jpg" alt="">
+                <div class="info">
+                    <h3>captain america civil war</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://cdna.artstation.com/p/assets/images/images/018/256/764/large/george-britton-infinitywarposterv2.jpg?1558723043" alt="">
+                <div class="info">
+                    <h3>avengers inifinity war</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/movie/N4UyE7S42GfloplQR6w4cXiy8mheG2.jpg" alt="">
+                <div class="info">
+                    <h3>thor ragnarko</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://wallpapercave.com/wp/wp3850277.jpg" alt="">
+                <div class="info">
+                    <h3>avengers end game</h3>
+                    <span>action, sci-fi, thriller, comedy</span>
+                    <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, repudiandae.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt.
+                    </p>
+                    <a href="#" class="btn">watch online</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+         <section class="product" id="product">
+               <h1 class="heading"><span>marvelous</span> products</h1>
+               <div class="box-container">
+                <div class="box">
+                    <h3>product 1</h3>
+                    <img src="https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_1600/https://escapematter.com/wp-content/uploads/2018/12/avengers-t-shirts-and-clothing.jpg" alt="">
+                    <div class="price">$30.00</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Cumque alias consectetur ipsam itaque! Earum modi perspiciatis,
+                          voluptatum saepe magnam quod?</p>
+                          <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <h3>product 2</h3>
+                    <img src="https://www.hasbro.com/common/productimages/en_US/37789C811E6D4811922462DCFAB691BC/91ecc4f9969d31df1ea04adeb9f84dcb27787445.jpg" alt="">
+                    <div class="price">$30.00</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Cumque alias consectetur ipsam itaque! Earum modi perspiciatis,
+                          voluptatum saepe magnam quod?</p>
+                          <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <h3>product 3</h3>
+                    <img src="https://images.mobilefun.co.uk/graphics/productgalleries/53404/e.jpg" alt="">
+                    <div class="price">$30.00</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Cumque alias consectetur ipsam itaque! Earum modi perspiciatis,
+                          voluptatum saepe magnam quod?</p>
+                          <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="box">
+                    <h3>product 4</h3>
+                    <img src="https://m.media-amazon.com/images/I/81w6jjXIzJL.jpg" alt="">
+                    <div class="price">$30.00</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Cumque alias consectetur ipsam itaque! Earum modi perspiciatis,
+                          voluptatum saepe magnam quod?</p>
+                          <a href="#" class="btn">add to cart</a>
+                </div>
+
+
+               </div>
+         </section>
+
+         <div class="footer">
+            <div class="share">
+                <a href="#"><i class="fab fa-youtube"></i>youtube</a>
+                <a href="#"><i class="fab fa-facebook"></i>facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i>twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i>instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i>linkedin</a>
+            </div>
+            <h1 class="credit">created by <a href="#">jyothibasu </a>all rights reserved!</h1>
+         </div>
+
+         <a href="#home" class="scroll-top">
+            <img src="21915A3501.jpeg" alt="">
+         </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+    $(window).on('scroll load',function(){
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+
+        if($(window).scrollTop() > 0){
+            $('.scroll-top').show();
+        }else{
+            $('.scroll-top').hide();
+        }
+
+        $('section').each(function(){
+
+            let height = $(this).height();
+            let offset = $(this).offset().top -200;
+            let id = $(this).attr('id');
+            let top = $(window).scrollTop();
+
+            if(top > offset && top < offset + height){
+                $('.navbar ul li a').removeClass('active')
+                $('.navbar').find(`[href="#${id}"]`).addClass('active')
+            }
+                });
+    });
+
+    $('a[href*="#"]').on('click',function(e){
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop : $($(this).attr('href')).offset().top,
+        },
+        500,
+        'linear'
+    )
+    })
+});
+    </script>
+</body>
+</html>
